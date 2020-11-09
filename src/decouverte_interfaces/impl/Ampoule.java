@@ -7,16 +7,18 @@ package decouverte_interfaces.impl;
 
 import decouverte_interfaces.api.Demarrable;
 
+import decouverte_interfaces.utilisation.test_interface;
+
 /**
  *
  * @author Max
  */
-public class Ampoule implements Demarrable {
+public class Ampoule implements Demarrable, Comparable<Ampoule>{
     
     private int puissance;
 
     public Ampoule(int puissance) {
-        this.puissance = +Math.abs(puissance);
+        this.puissance = 1+Math.abs(puissance);
         this.allumee=false;
     }
 
@@ -43,5 +45,11 @@ public class Ampoule implements Demarrable {
 
             this.allumee = false;
         }
+    }
+    @Override
+    public int compareTo(Ampoule o){
+        if(puissance>o.puissance) return 1;
+        if(puissance==o.puissance) return 0;
+        return -1;
     }
 }
