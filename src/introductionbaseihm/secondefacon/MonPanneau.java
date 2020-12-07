@@ -35,10 +35,23 @@ public class MonPanneau extends java.awt.Panel {
 
         monLabel.setAlignment(java.awt.Label.CENTER);
         monLabel.setText("Tu n'as pas encore cliqué.");
+        monLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                monLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                monLabelMouseExited(evt);
+            }
+        });
         add(monLabel);
         monLabel.getAccessibleContext().setAccessibleName("");
 
         monBouton.setLabel("Cliquez.");
+        monBouton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                monBoutonMouseEntered(evt);
+            }
+        });
         monBouton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 monBoutonActionPerformed(evt);
@@ -52,6 +65,18 @@ public class MonPanneau extends java.awt.Panel {
         compteur++;
         this.monLabel.setText("Tu as cliqué " + compteur + " fois.");
     }//GEN-LAST:event_monBoutonActionPerformed
+
+    private void monLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_monLabelMouseEntered
+        System.out.println("La souris est entrée sur le label");
+    }//GEN-LAST:event_monLabelMouseEntered
+
+    private void monLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_monLabelMouseExited
+        System.out.println("La souris est sortie du label");
+    }//GEN-LAST:event_monLabelMouseExited
+
+    private void monBoutonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_monBoutonMouseEntered
+        System.out.println("La souris est entrée sur le bouton");
+    }//GEN-LAST:event_monBoutonMouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
